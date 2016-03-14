@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="508.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dlg.menue.HauptmenueController">
+   <children>
+      <Button fx:id="buttonKdVerwaltung" layoutX="38.0" layoutY="37.0" mnemonicParsing="false" onAction="#starteKundenVW" prefHeight="27.0" prefWidth="232.0" text="Kundenverwaltung" />
+      <Button fx:id="buttonKontenVerwaltung" layoutX="39.0" layoutY="79.0" mnemonicParsing="false" onAction="#starteKontenVW" prefHeight="27.0" prefWidth="232.0" text="Kontenverwaltung" />
+      <Button fx:id="buttonBeenden" layoutX="39.0" layoutY="448.0" mnemonicParsing="false" onAction="#beenden" text="Beenden" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="330.0" prefWidth="292.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="dlg.kontenverwaltung.KontoAnlegenController">
+   <children>
+      <Button fx:id="buttonKontoAnlegen" layoutX="38.0" layoutY="279.0" mnemonicParsing="false" onAction="#buttonAnlegenClicked" text="Konto Anlegen" />
+      <Button fx:id="buttonZureck" layoutX="167.0" layoutY="279.0" mnemonicParsing="false" onAction="#buttonZureckClicked" text="Zurück" />
+      <Label layoutX="38.0" layoutY="39.0" text="Kundennummer:" />
+      <Label layoutX="38.0" layoutY="123.0" text="Kontonummer:" />
+      <TextField fx:id="tf_kundenNummer" layoutX="38.0" layoutY="56.0" />
+      <Label fx:id="label_ktoNr" layoutX="38.0" layoutY="148.0" prefHeight="27.0" prefWidth="167.0" />
+   </children>
+</AnchorPane>
