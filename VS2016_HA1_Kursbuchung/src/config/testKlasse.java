@@ -14,7 +14,7 @@ public class testKlasse {
 		// Relevante Komponenten des AWK's aus der Factory erzeugen
 		IKursverwaltungLocalFactory kursFactorylocal = new KursverwaltungLocalFactory();
 
-		// Benötigte Use Cases mittels erzeugter Factory beziehen
+		// Benoetigte Use Cases mittels erzeugter Factory beziehen
 		IKursAnlegen kursAnlegenLocal = kursFactorylocal.useCaseKursAnlegen();
 		
 		

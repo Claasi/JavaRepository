@@ -1,0 +1,32 @@
+/* Das hier ist ein Kommentar */
+
+/* Speziell für den Button #buttonAdministrator
+#buttonAdministrator{
+	-fx-font-size: 3.0em;
+	-fx-font-family: "Courier New";
+}*/
+
+/* Für ALLE Buttons, die nicht speziell gestaltet worden sind, verwendet man .button
+.button{
+	-fx-font-size: 2.0em;
+	-fx-font-color: red;
+}*/
+
+
+
+#greetingLabel{
+	-fx-font-size: 2.0em;
+	-fx-border-color: gray;
+	-fx-border-width: 1px;
+	-fx-border-radius: 4px;
+	-fx-alignment: center;
+	-fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.7), 1, 2, 1, 1);
+}
+
+
+
+/* Globale Eigenschaften, die für ALLE Kompontenten gelten */
+.root{
+	-fx-base: rgb(5, 200, 255);
+	-fx-background: rgb(195, 215, 215);	
+}
