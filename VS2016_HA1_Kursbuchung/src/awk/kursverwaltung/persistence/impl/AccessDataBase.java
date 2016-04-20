@@ -3,6 +3,8 @@ package awk.kursverwaltung.persistence.impl;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import awk.DatenhaltungsException;
 import awk.kursverwaltung.entity.KursTO;
@@ -11,8 +13,9 @@ import awk.persistence.ConnectDataBase;
 
 public class AccessDataBase implements IAccessDataBase{
 	
+	
+	
 	public KursTO getKursInfo() throws DatenhaltungsException {
-		
 		Connection aConnection = ConnectDataBase.ConnectDB();
 		ResultSet resultSet;
 		KursTO einKursTO = null;
@@ -70,43 +73,58 @@ public class AccessDataBase implements IAccessDataBase{
 		}
 	}
 	
-	
-	/*
 	public Collection<KursTO> getKursListe() throws DatenhaltungsException {
 		Connection aConnection = ConnectDataBase.ConnectDB();
 		ResultSet resultSet;
 		Collection<KursTO> kursTOListe = new ArrayList<KursTO>();
-			
 		try{			
-			resultSet =	ConnectDataBase.executeQueryStatement(aConnection,"SELECT * FROM Tabellenname");
+			resultSet =	ConnectDataBase.executeQueryStatement(aConnection,"SELECT * FROM VS2016_24.HA1_KURS");
 				
 			while (resultSet.next()) {
 				KursTO einKursTO = new KursTO();
-				einKursTO.setKursNr(resultSet.getInt("columnlabel"));
-				einKursTO.setKursName(resultSet.getString("columnlabel"));		
-				einKursTO.setAnzahlTeilnehmer(resultSet.getInt("columnlabel"));				
+				einKursTO.setKursNr(resultSet.getInt("KURS_NR"));
+				einKursTO.setKursName(resultSet.getString("KURS_NAME"));		
+				einKursTO.setAnzahlTeilnehmer(resultSet.getInt("KURS_PLAETZE"));				
 				
 				kursTOListe.add(einKursTO);
 			}
 			
-		for (KursTO einKursTO:kursTOListe) {
-			resultSet = 
-					ConnectDataBase.executeQueryStatement(aConnection, 
+			for (KursTO einKursTO:kursTOListe) {
+			resultSet = ConnectDataBase.executeQueryStatement(aConnection, 
 						"SELECT * " +
-						"FROM kundenverw_kontonummer " +
-						"WHERE cusnumber = " + einKursTO.getKursNr());
-			
+						"FROM VS2016_24.HA1_KURS " +
+						"WHERE KURS_NR = " + einKursTO.getKursNr());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DatenhaltungsException();
+		} finally {
+			ConnectDataBase.closeConnection(aConnection);
 		}
-	} catch (SQLException e) {
-		e.printStackTrace();
-		throw new DatenhaltungsException();
-	} finally {
-		ConnectDataBase.closeConnection(aConnection);
-	}
-	System.out.println("Anzahl geladener Kunden:"+kursTOListe.size());
+		System.out.println("Anzahl geladener Kurse:"+kursTOListe.size());
 	return kursTOListe;
 	}
-	*/
 	
+	
+	public void kursDatenListeSpeichern(Collection<KursTO> kursTOListe) throws DatenhaltungsException {
+		Connection aConnection = ConnectDataBase.ConnectDB();
+		
+		try {
+			ConnectDataBase.executeUpdateStatement(aConnection, "DELETE FROM VS2016_24.HA1_KURS ");
+			for (KursTO einKursTO : kursTOListe) {
+				ConnectDataBase.executeUpdateStatement(
+							aConnection, 
+							"INSERT INTO VS2016_24.HA1_KURS VALUES ( " +
+							"'"+ einKursTO.getKursNr() + "'," +
+							"'"+ einKursTO.getKursName() + "'," +
+							einKursTO.getAnzahlTeilnehmer() +")");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DatenhaltungsException();
+		} finally {
+			ConnectDataBase.closeConnection(aConnection);
+		}
+	}
 	
 }

@@ -18,10 +18,10 @@ public class testKlasse {
 		IKursAnlegen kursAnlegenLocal = kursFactorylocal.useCaseKursAnlegen();
 		
 		
-		int kursNr = 6;
-		String kursName = "Pilates";
-		int anzahlTeilnehmer = 18;
-		kursAnlegenLocal.kursAnlegen(kursNr, kursName, anzahlTeilnehmer);
+
+		String kursName = "Programmieren";
+		int anzahlTeilnehmer = 20;
+		kursAnlegenLocal.kursAnlegen(kursName, anzahlTeilnehmer);
 		
 		
 	}
