@@ -41,7 +41,7 @@
             <Label text="max. Anzahl Teilnehmer" GridPane.rowIndex="1" />
             <TextField fx:id="tf_kursName" GridPane.columnIndex="1" />
             <TextField fx:id="tf_maxAnzTeilnehmer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#buttonKundeAnlegenClicked" text="Kurs Anlegen" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="buttonKursAnlegen" mnemonicParsing="false" onAction="#buttonKundeAnlegenClicked" text="Kurs Anlegen" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" />

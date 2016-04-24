@@ -17,11 +17,11 @@ public class StartMenueJavaClass extends Application {
 	public static final String MainContent_FXML = "StartMenue.fxml";
 	public static final String KURSVW_ADMIN_SCREEN_FXML = "admin/KursVwAdminMenue.fxml";
 	public static final String KURSVERWALTUNG_SCREEN_FXML = "admin/KursVerwaltung.fxml";
+	
 	public static final String KURSBELEGUNG_SCREEN_FXML = "admin/KursBelegung.fxml";
 	
 	public static final String KURSVW_ENDUSER_SCREEN_FXML = "enduser/KursVwEnduserMenue.fxml";
 	
-
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {

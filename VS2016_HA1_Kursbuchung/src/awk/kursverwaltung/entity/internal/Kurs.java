@@ -1,6 +1,7 @@
 package awk.kursverwaltung.entity.internal;
 
 import java.io.Serializable;
+
 import awk.kursverwaltung.entity.KursTO;
 
 public class Kurs implements Serializable {
@@ -46,5 +47,4 @@ public class Kurs implements Serializable {
 	public int getAnzahlTeilnehmer() {
 		return anzahlTeilnehmer;
 	}
-
 }

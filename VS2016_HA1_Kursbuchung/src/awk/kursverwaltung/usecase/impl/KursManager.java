@@ -29,17 +29,17 @@ public class KursManager {
 		this.kurseLaden();
 	}
 		
-	public KursTO getKursInfo() throws DatenhaltungsException{
-		return daoDB.getKursInfo();
-	}
-	
-	public void updateKursInfo(int kursNr, String kursName, int anzahlTeilnehmer) throws DatenhaltungsException{
-		daoDB.updateKursInfo(kursNr, kursName, anzahlTeilnehmer);
-	}
-	
-	public void speichereKurs(int kursNr, String kursName, int anzahlTeilnehmer) throws DatenhaltungsException{
-		daoDB.speichereKurs(kursNr, kursName, anzahlTeilnehmer);
-	}
+//	public KursTO getKursInfo() throws DatenhaltungsException{
+//		return daoDB.getKursInfo();
+//	}
+//	
+//	public void updateKursInfo(int kursNr, String kursName, int anzahlTeilnehmer) throws DatenhaltungsException{
+//		daoDB.updateKursInfo(kursNr, kursName, anzahlTeilnehmer);
+//	}
+//	
+//	public void speichereKurs(int kursNr, String kursName, int anzahlTeilnehmer) throws DatenhaltungsException{
+//		daoDB.speichereKurs(kursNr, kursName, anzahlTeilnehmer);
+//	}
 	
 	public void addKursCollectionAndDB(Kurs einKurs) throws AnwendungskernException{
 		this.kursListe.add(einKurs);
@@ -54,7 +54,7 @@ public class KursManager {
 			throw new AnwendungskernException();
 		}
 		this.kursListe.clear();
-		for(KursTO einKursTO:kursListe)
+		for(KursTO einKursTO : kursListe)
 			this.kursListe.add(einKursTO.toKurs());
 	}
 	

@@ -8,6 +8,7 @@ import java.util.Collection;
 
 import awk.DatenhaltungsException;
 import awk.kursverwaltung.entity.KursTO;
+import awk.kursverwaltung.entity.TeilnehmerTO;
 import awk.kursverwaltung.persistence.IAccessDataBase;
 import awk.persistence.ConnectDataBase;
 
@@ -78,7 +79,7 @@ public class AccessDataBase implements IAccessDataBase{
 		ResultSet resultSet;
 		Collection<KursTO> kursTOListe = new ArrayList<KursTO>();
 		try{			
-			resultSet =	ConnectDataBase.executeQueryStatement(aConnection,"SELECT * FROM VS2016_24.HA1_KURS");
+			resultSet =	ConnectDataBase.executeQueryStatement(aConnection,"SELECT KURS_NR,KURS_NAME,KURS_PLAETZE FROM VS2016_24.HA1_KURS");
 				
 			while (resultSet.next()) {
 				KursTO einKursTO = new KursTO();
@@ -91,7 +92,7 @@ public class AccessDataBase implements IAccessDataBase{
 			
 			for (KursTO einKursTO:kursTOListe) {
 			resultSet = ConnectDataBase.executeQueryStatement(aConnection, 
-						"SELECT * " +
+						"SELECT KURS_NR,KURS_NAME,KURS_PLAETZE " +
 						"FROM VS2016_24.HA1_KURS " +
 						"WHERE KURS_NR = " + einKursTO.getKursNr());
 			}
@@ -126,5 +127,66 @@ public class AccessDataBase implements IAccessDataBase{
 			ConnectDataBase.closeConnection(aConnection);
 		}
 	}
+
+	
+	public Collection<TeilnehmerTO> getTeilnehmerListe() throws DatenhaltungsException {
+		Connection aConnection = ConnectDataBase.ConnectDB();
+		ResultSet resultSet;
+		Collection<TeilnehmerTO> teilnehmerTOListe = new ArrayList<TeilnehmerTO>();
+		try{			
+			resultSet =	ConnectDataBase.executeQueryStatement(aConnection,"SELECT TEILNEHMER_NR,TEILNEHMER_VORNAME,TEILNEHMER_NACHNAME FROM HA1_TEILNEHMER");
+				
+			while (resultSet.next()) {
+				TeilnehmerTO einTeilnehmerTO = new TeilnehmerTO();
+				einTeilnehmerTO.setTeilnehmerNr(resultSet.getInt("TEILNEHMER_NR"));
+				einTeilnehmerTO.setVorName(resultSet.getString("TEILNEHMER_VORNAME"));
+				einTeilnehmerTO.setNachName(resultSet.getString("TEILNEHMER_NACHNAME"));					
+				
+				teilnehmerTOListe.add(einTeilnehmerTO);
+				System.out.println("Teilnehmer " + einTeilnehmerTO.getVorName() + "wurde der Liste hinzugefügt!");
+			}
+			
+			for (TeilnehmerTO einTeilnehmerTO : teilnehmerTOListe) {
+			resultSet = ConnectDataBase.executeQueryStatement(aConnection, 
+						"SELECT TEILNEHMER_NR,TEILNEHMER_VORNAME,TEILNEHMER_NACHNAME " +
+						"FROM VS2016_24.HA1_TEILNEHMER " +
+						"WHERE TEILNEHMER_NR = " + einTeilnehmerTO.getTeilnehmerNr());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DatenhaltungsException();
+		} finally {
+			ConnectDataBase.closeConnection(aConnection);
+		}
+		System.out.println("Anzahl geladener Teilnehmer:"+teilnehmerTOListe.size());
+	return teilnehmerTOListe;
+	}
+
+	
+	public void saveTeilnehmerListe(Collection<TeilnehmerTO> teilnehmerTOListe) throws DatenhaltungsException {
+		Connection aConnection = ConnectDataBase.ConnectDB();
+		
+		try {
+			ConnectDataBase.executeUpdateStatement(aConnection, "DELETE FROM VS2016_24.HA1_TEILNEHMER ");
+			for (TeilnehmerTO einTeilnehmerTO : teilnehmerTOListe) {
+				ConnectDataBase.executeUpdateStatement(
+							aConnection, 
+							"INSERT INTO VS2016_24.HA1_TEILNEHMER VALUES ( " +
+							"'"+ einTeilnehmerTO.getTeilnehmerNr() + "'," +
+							"'"+ einTeilnehmerTO.getVorName() + "'," +
+							"'"+ einTeilnehmerTO.getNachName() +"'"+")");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DatenhaltungsException();
+		} finally {
+			ConnectDataBase.closeConnection(aConnection);
+		}
+	}
+	
+	
+	
+	
+	
 	
 }

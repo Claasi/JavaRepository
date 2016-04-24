@@ -14,6 +14,8 @@ import awk.kursverwaltung.usecase.IKursAnlegen;
 import awk.kursverwaltung.usecase.IKurseLaden;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -25,7 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class KursVerwaltungController implements Initializable{
+public class KursVerwaltungController implements Initializable, EventHandler<ActionEvent>{
 	
 	private IKursverwaltungLocalFactory kursFactoryLocal = new KursverwaltungLocalFactory();
 	private IKursAnlegen kursAnlegenLocal = kursFactoryLocal.useCaseKursAnlegen();
@@ -40,14 +42,18 @@ public class KursVerwaltungController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		initGUI();
+		tf_kursName.setOnAction(this);
+		tf_maxAnzTeilnehmer.setOnAction(this);
 	}
 	
 	private void initGUI(){
 		ladeKursListe();
 		tf_kursName.setText("");
+		tf_kursName.setPromptText("Eingabe bitte mit Enter bestätigen!");
 		tf_maxAnzTeilnehmer.setText("");
+		tf_maxAnzTeilnehmer.setPromptText("Eingabe bitte mit Enter bestätigen!");
+		buttonKursAnlegen.setDisable(true);
 	}
-	
 	
 	@FXML
 	public void buttonKundeAnlegenClicked() throws AnwendungskernException, DatenhaltungsException{
@@ -58,24 +64,20 @@ public class KursVerwaltungController implements Initializable{
 		String maxAnzTeilnehmerStr = tf_maxAnzTeilnehmer.getText();
 		
 		anzahlTeilnehmer = Integer.valueOf(maxAnzTeilnehmerStr);
-		kursAnlegenLocal.kursAnlegen(kursName, anzahlTeilnehmer);
-		
-//		boolean weiter = false;
 		
 		try {
-//			anzahlTeilnehmer = Integer.valueOf(maxAnzTeilnehmerStr);
-//			weiter = kursAnlegenLocal.kursAnlegen(kursName, anzahlTeilnehmer);
+			
+			kursAnlegenLocal.kursAnlegen(kursName, anzahlTeilnehmer);
+			
 		}catch (NumberFormatException e){
 			Dialog<String> dialog = new Dialog<>();
-			dialog.setContentText("Bitte geben Sie eine korrekte Kundennummer ein!");
+			dialog.setContentText("Bitte geben Sie eine korrekte Kursnummer ein!");
 			ButtonType okButtonType = new ButtonType("Ok", ButtonData.OK_DONE);
 			dialog.getDialogPane().getButtonTypes().add(okButtonType);
 			boolean disabled = false;
 			dialog.getDialogPane().lookupButton(okButtonType).setDisable(disabled);
 			dialog.show();
 		}
-		
-		// IF-Statement
 		
 		initGUI();
 	}
@@ -111,6 +113,19 @@ public class KursVerwaltungController implements Initializable{
 		tableView_kursTOListe.getColumns().clear();
 		tableView_kursTOListe.getColumns().addAll(spalteKursNr, spalteKursName, spalteAnzTeilnehmer);
 	}
+
+	@Override
+	public void handle(ActionEvent event) {
+		// TODO Auto-generated method stub
+		if(event.getSource()==tf_kursName && tf_kursName != null){
+			buttonKursAnlegen.setDisable(true);
+		}
+		if(event.getSource()==tf_maxAnzTeilnehmer && tf_maxAnzTeilnehmer != null){
+			buttonKursAnlegen.setDisable(false);
+		}
+	}
+	
+	
 	
 
 }

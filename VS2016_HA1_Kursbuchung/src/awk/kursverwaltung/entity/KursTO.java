@@ -1,13 +1,11 @@
 package awk.kursverwaltung.entity;
 
 import java.io.Serializable;
-
 import awk.kursverwaltung.entity.internal.Kurs;
 
 public class KursTO implements Serializable {
 
 	private static final long serialVersionUID = 6094449088744534712L;
-	
 	
 	int kursNr;
 	String kursName;
