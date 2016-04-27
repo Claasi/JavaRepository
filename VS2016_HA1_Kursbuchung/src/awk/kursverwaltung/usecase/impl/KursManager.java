@@ -81,5 +81,14 @@ public class KursManager {
 		return max;
 	}
 	
+	public Kurs sucheKursByKursNr(int kursNr){
+		for (Kurs einKurs : this.kursListe){
+			if (einKurs.getKursNr() == kursNr){
+				return einKurs;
+			}
+		}
+		return null;
+	}
+	
 
 }

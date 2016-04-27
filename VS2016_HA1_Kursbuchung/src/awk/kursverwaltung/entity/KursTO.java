@@ -1,6 +1,7 @@
 package awk.kursverwaltung.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import awk.kursverwaltung.entity.internal.Kurs;
 
 public class KursTO implements Serializable {
@@ -10,8 +11,9 @@ public class KursTO implements Serializable {
 	int kursNr;
 	String kursName;
 	int anzahlTeilnehmer;
-	
-//	Methode, um ein Objekt vom Typ Kurs zu erzeugen und dem erzeugten Objekt die Attribute von KursTO zuzuordnen
+	Collection<TeilnehmerTO> teilnehmerListe;
+
+	//	Methode, um ein Objekt vom Typ Kurs zu erzeugen und dem erzeugten Objekt die Attribute von KursTO zuzuordnen
 	public Kurs toKurs(){
 		Kurs einKurs = new Kurs(
 				this.getKursNr(),
@@ -39,4 +41,11 @@ public class KursTO implements Serializable {
 	public void setAnzahlTeilnehmer(int anzahlTeilnehmer) {
 		this.anzahlTeilnehmer = anzahlTeilnehmer;
 	}
+	public Collection<TeilnehmerTO> getTeilnehmerListe() {
+		return this.teilnehmerListe;
+	}
+	public void setTeilnehmerListe(Collection<TeilnehmerTO> teilnehmerListe) {
+		this.teilnehmerListe = teilnehmerListe;
+	}
+	
 }

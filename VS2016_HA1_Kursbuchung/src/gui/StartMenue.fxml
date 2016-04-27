@@ -11,7 +11,6 @@
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#goToAdminMenue" text="Admin" />
-            <Button mnemonicParsing="false" onAction="#showGreeting" text="Teilnehmer" />
             <Button mnemonicParsing="false" onAction="#closeApplication" text="Beenden" />
          </children>
       </VBox>

@@ -4,6 +4,7 @@ import awk.kursverwaltung.usecase.IKursAnlegen;
 import awk.kursverwaltung.usecase.IKurseLaden;
 import awk.kursverwaltung.usecase.ITeilnehmerAnlegen;
 import awk.kursverwaltung.usecase.ITeilnehmerListeAnzeigen;
+import awk.kursverwaltung.usecase.ITeilnehmerZumKursAnmelden;
 
 public interface IKursverwaltungLocalFactory {
 	
@@ -12,5 +13,6 @@ public interface IKursverwaltungLocalFactory {
 	IKurseLaden useCaseKurseLaden();
 	ITeilnehmerAnlegen useCaseTeilnehmerAnlegen();
 	ITeilnehmerListeAnzeigen useCaseTeilnehmerListeAnzeigen();
+	ITeilnehmerZumKursAnmelden useCaseTeilnehmerZumKursAnmelden();
 
 }

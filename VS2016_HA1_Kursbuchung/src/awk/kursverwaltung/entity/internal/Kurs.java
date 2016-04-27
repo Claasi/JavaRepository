@@ -1,6 +1,8 @@
 package awk.kursverwaltung.entity.internal;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import awk.kursverwaltung.entity.KursTO;
 
@@ -11,11 +13,14 @@ public class Kurs implements Serializable {
 	private int kursNr;
 	private String kursName;
 	private int anzahlTeilnehmer;
+	private Collection<Teilnehmer> teilnehmerListe;
 	
+	// Konstruktor
 	public Kurs(int kursNr, String kursName, int anzahlTeilnehmer){
 		this.kursNr = kursNr;
 		this.kursName = kursName;
 		this.anzahlTeilnehmer = anzahlTeilnehmer;
+		this.teilnehmerListe = new ArrayList<Teilnehmer>();
 	}
 	
 	// KursTO erstellen
@@ -33,7 +38,15 @@ public class Kurs implements Serializable {
 		einKursTO.setKursName(this.getKursName());
 		einKursTO.setAnzahlTeilnehmer(this.getAnzahlTeilnehmer());
 		
+//		einKursTO.setTeilnehmerListe(new ArrayList<TeilnehmerTO>());
+//		for(Teilnehmer einTeilnehmer : this.getTeilnehmerListe())
+//			einKursTO.getTeilnehmerListe().add(new TeilnehmerTO());
+		
 		return einKursTO;
+	}
+	
+	public void addTeilnehmer(Teilnehmer einTeilnehmer){
+		this.teilnehmerListe.add(new Teilnehmer(einTeilnehmer.getTeilnehmerNr(), einTeilnehmer.getVorName(), einTeilnehmer.getNachName()));
 	}
 
 	public int getKursNr() {
@@ -47,4 +60,23 @@ public class Kurs implements Serializable {
 	public int getAnzahlTeilnehmer() {
 		return anzahlTeilnehmer;
 	}
+
+	public Collection<Teilnehmer> getTeilnehmerListe() {
+		return this.teilnehmerListe;
+	}
+	
+	public void printCollection(Collection<Teilnehmer> teilnehmerListe){
+		for(Teilnehmer einTeilnehmer : teilnehmerListe)
+			System.out.println(einTeilnehmer);
+	}
+
+	@Override
+	public String toString() {
+		return "Kurs [kursNr=" + kursNr + ", kursName=" + kursName + ", anzahlTeilnehmer=" + anzahlTeilnehmer
+				+ ", teilnehmerListe=" + teilnehmerListe + "]\n";
+	}
+	
+	
+	
+	
 }

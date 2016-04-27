@@ -48,4 +48,11 @@ public class Teilnehmer implements Serializable {
 		return nachName;
 	}
 
+	@Override
+	public String toString() {
+		return "Teilnehmer [teilnehmerNr=" + teilnehmerNr + ", vorName=" + vorName + ", nachName=" + nachName + "]";
+	}
+	
+	
+
 }
