@@ -11,7 +11,7 @@ public class TeilnehmerZumKursAnmelden implements ITeilnehmerZumKursAnmelden{
 		
 		KursManager kursManagement = KursManager.getKursManager();
 		
-		Kurs einKurs = kursManagement.sucheKursByKursNr(kursnummer);
+		Kurs einKurs = kursManagement.getKursByNumber(kursnummer);
 		
 		einKurs.addTeilnehmer(einTeilnehmer);
 		kursManagement.saveKursListe();

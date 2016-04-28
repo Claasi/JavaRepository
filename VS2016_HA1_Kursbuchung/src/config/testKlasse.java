@@ -5,11 +5,13 @@ import java.util.Collection;
 
 import awk.AnwendungskernException;
 import awk.DatenhaltungsException;
+import awk.kursverwaltung.entity.KursTO;
 import awk.kursverwaltung.entity.internal.Kurs;
 import awk.kursverwaltung.entity.internal.Teilnehmer;
 import awk.kursverwaltung.factory.IKursverwaltungLocalFactory;
 import awk.kursverwaltung.factory.impl.KursverwaltungLocalFactory;
 import awk.kursverwaltung.usecase.IKursAnlegen;
+import awk.kursverwaltung.usecase.IKursSuchen;
 import awk.kursverwaltung.usecase.IKurseLaden;
 import awk.kursverwaltung.usecase.ITeilnehmerAnlegen;
 import awk.kursverwaltung.usecase.ITeilnehmerListeAnzeigen;
@@ -26,7 +28,8 @@ public class testKlasse {
 		IKursAnlegen kursAnlegenLocal = kursFactorylocal.useCaseKursAnlegen();
 		IKurseLaden kurseLadenLocal = kursFactorylocal.useCaseKurseLaden();
 		ITeilnehmerListeAnzeigen teilnehmerListeAnzeigen = kursFactorylocal.useCaseTeilnehmerListeAnzeigen();
-		ITeilnehmerAnlegen teilnehmerAnlegenLocal = kursFactorylocal.useCaseTeilnehmerAnlegen();		
+		ITeilnehmerAnlegen teilnehmerAnlegenLocal = kursFactorylocal.useCaseTeilnehmerAnlegen();	
+		IKursSuchen kursSuchenLocal = kursFactorylocal.useCaseKursSuchen();
 
 //		String kursName = "Programmieren";
 //		int anzahlTeilnehmer = 20;
@@ -62,13 +65,19 @@ public class testKlasse {
 		
 		kursListe.add(einKursB);
 		
-		System.out.println(kursListe + "\n");
-		System.out.println(kursListe);
+		kursSuchenLocal.sucheKursByNummer(1);
 		
-		for(Kurs aK : kursListe){
-			System.out.println(aK);
+		for(KursTO einK : kursSuchenLocal.sucheKursByNummer(2)){
+			System.out.println(einK.getKursName());
 		}
 		
+//		System.out.println(kursListe + "\n");
+//		System.out.println(kursListe);
+//		
+//		for(Kurs aK : kursListe){
+//			System.out.println(aK);
+//		}
+//		
 
 		
 	}

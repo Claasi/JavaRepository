@@ -112,7 +112,7 @@ public class AccessDataBase implements IAccessDataBase{
 		
 		try {
 			ConnectDataBase.executeUpdateStatement(aConnection, "DELETE FROM VS2016_24.HA1_KURS ");
-			ConnectDataBase.executeUpdateStatement(aConnection, "DELETE FROM VS2016_24.HA1_TEILNEHMER ");
+//			ConnectDataBase.executeUpdateStatement(aConnection, "DELETE FROM VS2016_24.HA1_TEILNEHMER ");
 			
 			for (KursTO einKursTO : kursTOListe) {
 				ConnectDataBase.executeUpdateStatement(
@@ -122,14 +122,14 @@ public class AccessDataBase implements IAccessDataBase{
 							"'"+ einKursTO.getKursName() + "'," +
 							einKursTO.getAnzahlTeilnehmer() +")");
 				
-				for (TeilnehmerTO einTeilnehmerTO : einKursTO.getTeilnehmerListe()){
-					ConnectDataBase.executeUpdateStatement(
-							aConnection, 
-							"INSERT INTO VS2016_24.HA1_TEILNEHMER VALUES ( " +
-							"'"+ einTeilnehmerTO.getTeilnehmerNr() + "'," +
-							"'"+ einTeilnehmerTO.getVorName() + "'," +
-							"'"+ einTeilnehmerTO.getNachName() + "'"+")");				
-				}
+//				for (TeilnehmerTO einTeilnehmerTO : einKursTO.getTeilnehmerListe()){
+//					ConnectDataBase.executeUpdateStatement(
+//							aConnection, 
+//							"INSERT INTO VS2016_24.HA1_TEILNEHMER VALUES ( " +
+//							"'"+ einTeilnehmerTO.getTeilnehmerNr() + "'," +
+//							"'"+ einTeilnehmerTO.getVorName() + "'," +
+//							"'"+ einTeilnehmerTO.getNachName() + "'"+")");				
+//				}
 				
 			}
 			

@@ -1,6 +1,7 @@
 package awk.kursverwaltung.factory;
 
 import awk.kursverwaltung.usecase.IKursAnlegen;
+import awk.kursverwaltung.usecase.IKursSuchen;
 import awk.kursverwaltung.usecase.IKurseLaden;
 import awk.kursverwaltung.usecase.ITeilnehmerAnlegen;
 import awk.kursverwaltung.usecase.ITeilnehmerListeAnzeigen;
@@ -14,5 +15,6 @@ public interface IKursverwaltungLocalFactory {
 	ITeilnehmerAnlegen useCaseTeilnehmerAnlegen();
 	ITeilnehmerListeAnzeigen useCaseTeilnehmerListeAnzeigen();
 	ITeilnehmerZumKursAnmelden useCaseTeilnehmerZumKursAnmelden();
+	IKursSuchen useCaseKursSuchen();
 
 }

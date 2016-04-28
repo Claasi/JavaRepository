@@ -16,6 +16,11 @@ public class StartMenueController {
 	private void goToAdminMenue() throws IOException{
 		startMenue.showAdminMenue();
 	}
+	
+	@FXML
+	private void goToUserMenue() throws IOException{
+		startMenue.showUserMenue();
+	}
 
 	@FXML
 	private Label greetingLabel;

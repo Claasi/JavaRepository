@@ -17,10 +17,8 @@ public class StartMenueJavaClass extends Application {
 	public static final String MainContent_FXML = "StartMenue.fxml";
 	public static final String KURSVW_ADMIN_SCREEN_FXML = "admin/KursVwAdminMenue.fxml";
 	public static final String KURSVERWALTUNG_SCREEN_FXML = "admin/KursVerwaltung.fxml";
-	
 	public static final String KURSBELEGUNG_SCREEN_FXML = "admin/KursBelegung.fxml";
-	
-	public static final String KURSVW_ENDUSER_SCREEN_FXML = "enduser/KursVwEnduserMenue.fxml";
+	public static final String KURSVW_USER_SCREEN_FXML = "user/KursAnmeldung.fxml";
 	
 	
 	@Override
@@ -65,6 +63,15 @@ public class StartMenueJavaClass extends Application {
 		BorderPane bP = loddar.load();
 		mainLayout.setCenter(bP);
 		primaryStage.setTitle("Admin-Menü");
+	}
+	
+	
+	public static void showUserMenue() throws IOException{
+		FXMLLoader loddar = new FXMLLoader();
+		loddar.setLocation(StartMenueJavaClass.class.getResource(KURSVW_USER_SCREEN_FXML));
+		BorderPane bP = loddar.load();
+		mainLayout.setCenter(bP);
+		primaryStage.setTitle("Benutzer - Kursanmeldung");
 	}
 	
 
