@@ -1,14 +1,14 @@
-package awk.kursverwaltung.usecase.impl;
+package awk.teilnehmerverwaltung.usecase.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import awk.AnwendungskernException;
 import awk.DatenhaltungsException;
-import awk.kursverwaltung.entity.TeilnehmerTO;
-import awk.kursverwaltung.entity.internal.Teilnehmer;
-import awk.kursverwaltung.persistence.IAccessDataBase;
-import awk.kursverwaltung.persistence.impl.AccessDataBase;
+import awk.teilnehmerverwaltung.entity.TeilnehmerTO;
+import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
+import awk.teilnehmerverwaltung.persistence.IAccessDataBase;
+import awk.teilnehmerverwaltung.persistence.impl.AccessDataBase;
 
 public class TeilnehmerManager {
 	
@@ -71,3 +71,4 @@ public class TeilnehmerManager {
 	}
 
 }
+

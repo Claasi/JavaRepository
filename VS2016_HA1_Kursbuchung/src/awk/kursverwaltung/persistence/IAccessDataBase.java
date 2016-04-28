@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import awk.DatenhaltungsException;
 import awk.kursverwaltung.entity.KursTO;
-import awk.kursverwaltung.entity.TeilnehmerTO;
 
 public interface IAccessDataBase {
 	
@@ -15,7 +14,4 @@ public interface IAccessDataBase {
 	public Collection<KursTO> getKursListe() throws DatenhaltungsException;
 	public void kursDatenListeSpeichern(Collection<KursTO> kursTOListe) throws DatenhaltungsException;
 	
-	public Collection<TeilnehmerTO> getTeilnehmerListe() throws DatenhaltungsException;
-	public void saveTeilnehmerListe(Collection<TeilnehmerTO> teilnehmerTOListe) throws DatenhaltungsException;
-
 }

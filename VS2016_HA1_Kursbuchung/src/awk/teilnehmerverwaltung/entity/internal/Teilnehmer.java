@@ -1,7 +1,8 @@
-package awk.kursverwaltung.entity.internal;
+package awk.teilnehmerverwaltung.entity.internal;
 
 import java.io.Serializable;
-import awk.kursverwaltung.entity.TeilnehmerTO;
+
+import awk.teilnehmerverwaltung.entity.TeilnehmerTO;
 
 public class Teilnehmer implements Serializable {
 
@@ -52,7 +53,4 @@ public class Teilnehmer implements Serializable {
 	public String toString() {
 		return "Teilnehmer [teilnehmerNr=" + teilnehmerNr + ", vorName=" + vorName + ", nachName=" + nachName + "]";
 	}
-	
-	
-
 }

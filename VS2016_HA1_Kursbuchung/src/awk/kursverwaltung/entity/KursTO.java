@@ -3,6 +3,7 @@ package awk.kursverwaltung.entity;
 import java.io.Serializable;
 import java.util.Collection;
 import awk.kursverwaltung.entity.internal.Kurs;
+import awk.teilnehmerverwaltung.entity.TeilnehmerTO;
 
 public class KursTO implements Serializable {
 

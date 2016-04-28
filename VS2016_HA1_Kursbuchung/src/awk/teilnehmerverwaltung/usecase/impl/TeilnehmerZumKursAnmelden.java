@@ -1,9 +1,10 @@
-package awk.kursverwaltung.usecase.impl;
+package awk.teilnehmerverwaltung.usecase.impl;
 
 import awk.AnwendungskernException;
 import awk.kursverwaltung.entity.internal.Kurs;
-import awk.kursverwaltung.entity.internal.Teilnehmer;
-import awk.kursverwaltung.usecase.ITeilnehmerZumKursAnmelden;
+import awk.kursverwaltung.usecase.impl.KursManager;
+import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
+import awk.teilnehmerverwaltung.usecase.ITeilnehmerZumKursAnmelden;
 
 public class TeilnehmerZumKursAnmelden implements ITeilnehmerZumKursAnmelden{
 
@@ -15,7 +16,6 @@ public class TeilnehmerZumKursAnmelden implements ITeilnehmerZumKursAnmelden{
 		
 		einKurs.addTeilnehmer(einTeilnehmer);
 		kursManagement.saveKursListe();
-		
 	}
 
 }

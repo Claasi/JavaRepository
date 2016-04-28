@@ -1,12 +1,12 @@
-package awk.kursverwaltung.usecase.impl;
+package awk.teilnehmerverwaltung.usecase.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import awk.AnwendungskernException;
-import awk.kursverwaltung.entity.TeilnehmerTO;
-import awk.kursverwaltung.entity.internal.Teilnehmer;
-import awk.kursverwaltung.usecase.ITeilnehmerListeAnzeigen;
+import awk.teilnehmerverwaltung.entity.TeilnehmerTO;
+import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
+import awk.teilnehmerverwaltung.usecase.ITeilnehmerListeAnzeigen;
 
 public class TeilnehmerListeAnzeigen implements ITeilnehmerListeAnzeigen {
 

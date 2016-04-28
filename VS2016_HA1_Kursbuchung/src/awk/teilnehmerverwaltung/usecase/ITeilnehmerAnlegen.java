@@ -1,4 +1,4 @@
-package awk.kursverwaltung.usecase;
+package awk.teilnehmerverwaltung.usecase;
 
 import awk.AnwendungskernException;
 import awk.DatenhaltungsException;

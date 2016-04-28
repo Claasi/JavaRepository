@@ -1,9 +1,9 @@
-package awk.kursverwaltung.usecase.impl;
+package awk.teilnehmerverwaltung.usecase.impl;
 
-import awk.DatenhaltungsException;
 import awk.AnwendungskernException;
-import awk.kursverwaltung.entity.internal.Teilnehmer;
-import awk.kursverwaltung.usecase.ITeilnehmerAnlegen;
+import awk.DatenhaltungsException;
+import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
+import awk.teilnehmerverwaltung.usecase.ITeilnehmerAnlegen;
 
 public class TeilnehmerAnlegen implements ITeilnehmerAnlegen{
 	
@@ -15,5 +15,4 @@ public class TeilnehmerAnlegen implements ITeilnehmerAnlegen{
 		
 		return true;
 	}
-
 }

@@ -1,9 +1,9 @@
-package awk.kursverwaltung.usecase;
+package awk.teilnehmerverwaltung.usecase;
 
 import java.util.Collection;
 
 import awk.AnwendungskernException;
-import awk.kursverwaltung.entity.TeilnehmerTO;
+import awk.teilnehmerverwaltung.entity.TeilnehmerTO;
 
 public interface ITeilnehmerListeAnzeigen {
 	

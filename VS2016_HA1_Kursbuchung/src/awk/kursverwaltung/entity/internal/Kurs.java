@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import awk.kursverwaltung.entity.KursTO;
+import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
 
 public class Kurs implements Serializable {
 

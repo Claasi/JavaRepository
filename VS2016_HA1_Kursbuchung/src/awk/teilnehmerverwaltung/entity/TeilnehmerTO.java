@@ -1,8 +1,8 @@
-package awk.kursverwaltung.entity;
+package awk.teilnehmerverwaltung.entity;
 
 import java.io.Serializable;
 
-import awk.kursverwaltung.entity.internal.Teilnehmer;
+import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
 
 public class TeilnehmerTO implements Serializable{
 
@@ -42,3 +42,4 @@ public class TeilnehmerTO implements Serializable{
 		this.nachName = nachName;
 	}
 }
+

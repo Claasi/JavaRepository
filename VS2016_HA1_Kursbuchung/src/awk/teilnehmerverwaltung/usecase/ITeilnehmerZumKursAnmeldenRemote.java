@@ -1,9 +1,9 @@
-package awk.kursverwaltung.usecase;
+package awk.teilnehmerverwaltung.usecase;
 
 import java.rmi.RemoteException;
 
 import awk.AnwendungskernException;
-import awk.kursverwaltung.entity.internal.Teilnehmer;
+import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
 
 public interface ITeilnehmerZumKursAnmeldenRemote {
 	
