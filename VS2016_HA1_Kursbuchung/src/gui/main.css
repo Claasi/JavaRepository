@@ -66,21 +66,36 @@
 	
 }
 
-/* Button Selected */
-
+/* Button gedrückt halten:
 .button:focused {
 	-fx-color:#00a7d4;
 	-fx-background-color:#ED9C28, #00a7d4;
 	-fx-background-insets: -1.4, 0, 1, 2;
 	-fx-background-radius: 0;
 }
+*/
 
+/* Button Mouseoveor */
 .button:hover {
 	-fx-focus-color: #FF0000;
 	-fx-background-color: #ED9C28, #0187ab;
 }
 
-
+#homeButton{
+	-fx-background-color: 
+        rgba(0,0,0,0.08),
+        linear-gradient(#5a61af, #51536d),
+        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 5 10 5 10;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#homeButton:hover{
+	-fx-focus-color: #FF0000;
+	-fx-background-color: #ED9C28, #0187ab;
+}
 
 
 #greetingLabel{
@@ -106,7 +121,7 @@
     -fx-text-fill: white;
     */
     
-     /* Shiny-Orange */  
+     /* Shiny-Orange  
 	-fx-background-color: 
         linear-gradient(#ffd65b, #e68400),
         linear-gradient(#ffef84, #f2ba44),
@@ -116,6 +131,19 @@
     -fx-background-radius: 30;
     -fx-background-insets: 0,1,2,3,0;
     -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-padding: 10 20 10 20; */
+
+    -fx-background-color: 
+        linear-gradient(#5a61af, #51536d),
+        linear-gradient(#e4fbff 0%, #cee6fb 10%),
+        linear-gradient(#a5d3fb 50%, #88c6fb 51%),
+        linear-gradient(#d5faff 100%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(0,0,0,0.08), rgba(0,0,0,0.08));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+  /*-fx-text-fill: #654b00; --> Schriftfabe ändern*/
     -fx-font-weight: bold;
     -fx-font-size: 18px;
     -fx-padding: 10 20 10 20;

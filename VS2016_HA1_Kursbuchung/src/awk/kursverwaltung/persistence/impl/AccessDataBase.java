@@ -88,7 +88,7 @@ public class AccessDataBase implements IAccessDataBase{
 				kursTOListe.add(einKursTO);
 			}
 			
-			for (KursTO einKursTO:kursTOListe) {
+			for (KursTO einKursTO : kursTOListe) {
 			resultSet = ConnectDataBase.executeQueryStatement(aConnection, 
 						"SELECT KURS_NR,KURS_NAME,KURS_PLAETZE " +
 						"FROM VS2016_24.HA1_KURS " +
@@ -120,14 +120,14 @@ public class AccessDataBase implements IAccessDataBase{
 							"'"+ einKursTO.getKursName() + "'," +
 							einKursTO.getAnzahlTeilnehmer() +")");
 				
-				for (TeilnehmerTO einTeilnehmerTO : einKursTO.getTeilnehmerListe()){
-					ConnectDataBase.executeUpdateStatement(
-							aConnection, 
-							"INSERT INTO VS2016_24.HA1_TEILNEHMER VALUES ( " +
-							"'"+ einTeilnehmerTO.getTeilnehmerNr() + "'," +
-							"'"+ einTeilnehmerTO.getVorName() + "'," +
-							"'"+ einTeilnehmerTO.getNachName() + "'"+")");				
-				}
+//				for (TeilnehmerTO einTeilnehmerTO : einKursTO.getTeilnehmerListe()){
+//					ConnectDataBase.executeUpdateStatement(
+//							aConnection, 
+//							"INSERT INTO VS2016_24.HA1_TEILNEHMER VALUES ( " +
+//							"'"+ einTeilnehmerTO.getTeilnehmerNr() + "'," +
+//							"'"+ einTeilnehmerTO.getVorName() + "'," +
+//							"'"+ einTeilnehmerTO.getNachName() + "'"+")");				
+//				}
 				
 			}
 			

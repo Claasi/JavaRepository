@@ -8,5 +8,6 @@ import awk.kursverwaltung.entity.KursTO;
 public interface IKursSuchen {
 	
 	public Collection<KursTO> sucheKursByNummer(int kursNr) throws AnwendungskernException;
+	public KursTO kursTOsuchenByNr(int kursNr) throws AnwendungskernException;
 
 }

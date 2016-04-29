@@ -25,5 +25,24 @@ public class KursSuchen implements IKursSuchen{
 		return kursTOListe;
 		}
 	}
+	
+	// 1. Funktionsaufruf - wird von TeilnehmerZumKursAnmelden aufgerufen. Gibt am Ende dieser Methode das Transferobjekt mit der übergebenen kursNR zurück
+	public KursTO kursTOsuchenByNr(int kursNr) throws AnwendungskernException{
+		
+		KursManager km = KursManager.getKursManager();
+		
+		// geht hier in den KursManager rein und durchsucht die Datenbank nach Kursen mit der hier übgergebenen kursNR
+		Kurs einKurs = km.getKursByNumber(kursNr);
+		
+		if(einKurs == null){
+			return null;
+		} else{
+			// 
+			return einKurs.toKursTO();
+		}
+		
+		
+	}
+	
 
 }

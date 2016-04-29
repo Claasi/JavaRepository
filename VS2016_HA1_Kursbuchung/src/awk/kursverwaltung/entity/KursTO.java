@@ -1,6 +1,7 @@
 package awk.kursverwaltung.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import awk.kursverwaltung.entity.internal.Kurs;
 import awk.teilnehmerverwaltung.entity.TeilnehmerTO;
@@ -22,6 +23,10 @@ public class KursTO implements Serializable {
 				this.getAnzahlTeilnehmer());
 		
 		return einKurs;
+	}
+	
+	public KursTO(){
+		this.teilnehmerListe = new ArrayList<TeilnehmerTO>();
 	}
 	
 	public int getKursNr() {

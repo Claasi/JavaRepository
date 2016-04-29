@@ -37,16 +37,24 @@ public class Teilnehmer implements Serializable {
 		return einTeilnehmerTO;
 	}
 	
+	
 	public int getTeilnehmerNr() {
 		return teilnehmerNr;
 	}
-
 	public String getVorName() {
 		return vorName;
 	}
-
 	public String getNachName() {
 		return nachName;
+	}
+	public void setTeilnehmerNr(int teilnehmerNr) {
+		this.teilnehmerNr = teilnehmerNr;
+	}
+	public void setVorName(String vorName) {
+		this.vorName = vorName;
+	}
+	public void setNachName(String nachName) {
+		this.nachName = nachName;
 	}
 
 	@Override

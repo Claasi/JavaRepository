@@ -17,6 +17,7 @@ import awk.teilnehmerverwaltung.factory.ITeilnehmerverwaltungLocalFactory;
 import awk.teilnehmerverwaltung.factory.impl.TeilnehmerverwaltungLocalFactory;
 import awk.teilnehmerverwaltung.usecase.ITeilnehmerAnlegen;
 import awk.teilnehmerverwaltung.usecase.ITeilnehmerListeAnzeigen;
+import awk.teilnehmerverwaltung.usecase.ITeilnehmerZumKursAnmelden;
 
 public class testKlasse {
 
@@ -33,6 +34,7 @@ public class testKlasse {
 		IKursSuchen kursSuchenLocal = kursFactorylocal.useCaseKursSuchen();
 		ITeilnehmerListeAnzeigen teilnehmerListeAnzeigen = teilnehmerFactoryLocal.useCaseTeilnehmerListeAnzeigen();
 		ITeilnehmerAnlegen teilnehmerAnlegenLocal = teilnehmerFactoryLocal.useCaseTeilnehmerAnlegen();	
+		ITeilnehmerZumKursAnmelden teilnehmerZumKursAnmelden = teilnehmerFactoryLocal.useCaseTeilnehmerZumKursAnmelden();
 
 
 //		String kursName = "Programmieren";
@@ -63,26 +65,34 @@ public class testKlasse {
 		int teilnehmerNr = 1;
 		String vorName = "Tony";
 		String nachName = "Chopper";
-		Teilnehmer einTeilnehmer = new Teilnehmer(teilnehmerNr, vorName, nachName);
+		Teilnehmer einTeilnehmerA = new Teilnehmer(teilnehmerNr, vorName, nachName);
 		
-		einKursB.addTeilnehmer(einTeilnehmer);
+		einKursB.addTeilnehmer(einTeilnehmerA);
+		
+		teilnehmerNr = 4;
+		vorName = "Harald";
+		nachName = "Schmidt";
+		Teilnehmer einTeilnehmerB = new Teilnehmer(teilnehmerNr, vorName, nachName);
+		
+		einKursB.addTeilnehmer(einTeilnehmerB);
 		
 		kursListe.add(einKursB);
 		
-		kursSuchenLocal.sucheKursByNummer(1);
-		
-		for(KursTO einK : kursSuchenLocal.sucheKursByNummer(2)){
-			System.out.println(einK.getKursName());
-		}
-		
 //		System.out.println(kursListe + "\n");
 //		System.out.println(kursListe);
-//		
-//		for(Kurs aK : kursListe){
-//			System.out.println(aK);
-//		}
-//		
+		
+		for(Kurs aK : kursListe){
+			System.out.println(aK);
+			System.out.println(aK.getKursNr()+" "+aK.getKursName()+" "+aK.getAnzahlTeilnehmer());
+			System.out.println("Anzahl Teilnehmer:"+aK.getTeilnehmerListe().size());
+			for (Teilnehmer einTeilnehmer : aK.getTeilnehmerListe()){
+				System.out.println(einTeilnehmer.getTeilnehmerNr()+" "+einTeilnehmer.getVorName()+" "+einTeilnehmer.getNachName());
+			}
+		}
+		
 
+		teilnehmerZumKursAnmelden.addTeilnehmerToKurs(kursNr, einTeilnehmerA);
+		
 		
 	}
 

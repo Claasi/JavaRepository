@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import awk.kursverwaltung.entity.KursTO;
+import awk.teilnehmerverwaltung.entity.TeilnehmerTO;
 import awk.teilnehmerverwaltung.entity.internal.Teilnehmer;
 
 public class Kurs implements Serializable {
@@ -29,6 +30,12 @@ public class Kurs implements Serializable {
 		this.kursNr = erstelleKursTO.getKursNr();
 		this.kursName = erstelleKursTO.getKursName();
 		this.anzahlTeilnehmer = erstelleKursTO.getAnzahlTeilnehmer();
+		
+//		this.teilnehmerListe = new ArrayList<Teilnehmer>();
+//		for (TeilnehmerTO einTeilnehmerTO : erstelleKursTO.getTeilnehmerListe()){
+//			this.teilnehmerListe.add(einTeilnehmerTO.toTeilnehmer());
+//		}
+		
 	}
 	
 	// Transport-Objekt der Klasse KursTO erzeugen und diesem, die Eigenschaften von Kurs zuordnen
@@ -40,6 +47,7 @@ public class Kurs implements Serializable {
 		einKursTO.setAnzahlTeilnehmer(this.getAnzahlTeilnehmer());
 		
 //		einKursTO.setTeilnehmerListe(new ArrayList<TeilnehmerTO>());
+//		
 //		for(Teilnehmer einTeilnehmer : this.getTeilnehmerListe())
 //			einKursTO.getTeilnehmerListe().add(new TeilnehmerTO());
 		
